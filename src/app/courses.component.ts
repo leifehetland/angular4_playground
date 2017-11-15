@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+
 import { CoursesService } from "./courses.service";
 
 @Component({
@@ -25,13 +26,20 @@ import { CoursesService } from "./courses.service";
     </div>
 
     <h3> Event Filtering: </h3>
-    <input (keyup.enter)="onKeyUp()" />
+    <input [value]="email" (keyup.enter)="email = $event.target.value ;onKeyUp()" />
+
+    <h3> Two Way Binding: </h3>
+    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+
+    <div style="color: blue;">{{ text | summary:10 }}</div>
   `
 })
 export class CoursesComponent {
   title = "List of courses";
+  text = "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn. K'yarnaknyth athg csll'ha Shub-Niggurath, Hastur Tsathoggua gnaiih ep uaaah vulgtm chtenff n'ghft hafh'drn tharanak, hupadgh 'aiyar syha'h nog uln chtenff geb stell'bsna. H'ebunma goka y'hah n'gha ehye kadishtu nog syha'h hrii, Cthulhu li'hee fm'latgh ngTsathoggua ilyaa f'hafh'drn hafh'drn, 'ai lloig nnnuln grah'n ep yayar lw'nafh. Cshagg ph'k'yarnak gnaiih ya li'hee gotha chtenff throdor hai, ya Shub-Niggurathnyth ooboshu chai ah nnny'hah 'ai orr'e R'lyeh, hrii hai vulgtlagln hrii lloig ya cTsathoggua. Geb ngy'hah ehye li'hee nilgh'ri ph'ooboshu lw'nafh y-ftaghu Nyarlathotep athg, Yoggothoth 'aior grah'n y-uln hai ilyaa shogg hupadgh ehye, h'gof'nn 'ai ehye kadishtu hlirgh hai Chaugnar Faugn nnnnilgh'ri. ";
   courses;
   isActive = true;
+  email = "Hello World";
 
   onDivClicked(){
     console.log("Div was clicked");
@@ -43,7 +51,7 @@ export class CoursesComponent {
   }
 
   onKeyUp() {
-    console.log("Enter was pressed")
+    console.log(this.email);
   }
 
   constructor(service: CoursesService) {
