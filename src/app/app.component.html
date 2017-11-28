@@ -1,3 +1,29 @@
 <h1>Angular</h1>
+
+<br/>
+<br/>
+
+<favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite>
+
+<br/>
+<br/>
+
+<img *ngIf="imageUrl" [src]="imageUrl" />
+<button (click)="onClick()"></button>
+
+<br/>
+<br/>
+
+<input type="text" [(ngModel)]="title">
+<br/>
+{{ title | titleCase }}
+
+<br/>
+<br/>
+
 <courses></courses>
+
+<br/>
+<br/>
+
 <authors></authors>
