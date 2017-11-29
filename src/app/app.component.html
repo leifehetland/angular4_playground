@@ -1,6 +1,9 @@
+<button class="btn-default" (click)="onAdd()">Add</button>
 <ul>
-  <li *ngFor="let clown of clowns; index as i">{{i}} - {{clown.name}}</li>
-  <li *ngFor="let clown of clowns; even as isEven" >{{clown.name}} <span *ngIf="isEven"> - THIS GUY</span></li>
+  <li style="padding: 1rem 0;" *ngFor="let clown of clowns; index as i">{{i}} - {{clown.name}}
+    <button class="btn-danger" (click)="onRemove(clown)">Remove</button>
+    <button class="btn-success" (click)="onChange(clown)">Update</button>
+  </li>
 </ul>
 
 

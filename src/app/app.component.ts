@@ -35,4 +35,18 @@ export class AppComponent {
   onFavoriteChange(eventArgs: FavoriteChangedEventArgs ) {
     console.log("Favorite changed: ", eventArgs);
   }
+
+  onAdd() {
+    this.clowns.push({id: 4, name: "Helmut"});
+  }
+
+  onRemove(clown) {
+    let index = this.clowns.indexOf(clown);
+    this.clowns.splice(index, 1);
+  }
+
+  onChange(clown) {
+    clown.name = "Updated";
+  }
+
 }
