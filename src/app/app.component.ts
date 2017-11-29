@@ -11,6 +11,12 @@ import { FavoriteChangedEventArgs } from './favorite/favorite.component';
 export class AppComponent {
   viewMode = "other";
 
+  clowns = [
+    {id: 1, name: "Bingo"},
+    {id: 2, name: "Bozo"},
+    {id: 3, name: "Gacy"}
+  ];
+
   courses = [1, 2];
 
   tweet = {

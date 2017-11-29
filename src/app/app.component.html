@@ -1,3 +1,10 @@
+<ul>
+  <li *ngFor="let clown of clowns; index as i">{{i}} - {{clown.name}}</li>
+  <li *ngFor="let clown of clowns; even as isEven" >{{clown.name}} <span *ngIf="isEven"> - THIS GUY</span></li>
+</ul>
+
+
+<h2 style="text-decoration: underline;">ngIf and ng-template</h2>
 
 <ul class="nav nav-pills">
   <li [class.active]="viewMode == 'map'"><a (click)="viewMode = 'map'">Map View</a></li>
@@ -11,7 +18,8 @@
 </div>
 
 <h2 style="text-decoration: underline;">ngIf and ng-template</h2>
-<div *ngIf="courses.length > 0; then coursesList else noCourses" >
+
+<div *ngIf="courses.length > 0; then coursesList else noCourses">
 
 </div>
 
