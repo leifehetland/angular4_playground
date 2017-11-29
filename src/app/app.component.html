@@ -1,6 +1,13 @@
 
+<h2 style="text-decoration: underline;">Safe traversal operator</h2>
+<span *ngIf="task.assignee">{{ task.assignee?.name }}</span>
+
+<span *ngIf="task.assignee">{{ task.assignee.name }}</span>
+
+
+<h2 style="text-decoration: underline;">ngStyle</h2>
 <button
-  
+
   [ngStyle]="{
     'backgroundColor': canSave ? 'blue' : 'gray',
     'color': canSave ? 'white' : 'black',
