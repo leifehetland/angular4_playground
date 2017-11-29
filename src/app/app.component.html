@@ -1,4 +1,15 @@
 
+<button
+  
+  [ngStyle]="{
+    'backgroundColor': canSave ? 'blue' : 'gray',
+    'color': canSave ? 'white' : 'black',
+    'fontWeight': canSave ? 'bold' : 'normal'
+  }"
+>
+Save
+</button>
+
 <button class="btn-primary" (click)="onAdd()">Add</button>
 <button class="btn-default" (click)="loadCourses()">Load Courses</button>
 <ul>
