@@ -1,4 +1,24 @@
 
+<div *ngIf="courses.length > 0; else noCourses" >
+  List of Courses
+  <ul>
+    <li></li>
+  </ul>
+</div>
+
+<ng-template #noCourses>
+  No Courses yet...
+  <ul>
+    <li></li>
+  </ul>
+</ng-template>
+
+<!--
+<like
+  [likesCount]="tweet.likesCount"
+  [isActive]="tweet.isLiked"
+></like>
+
 <bootstrap-panel>
   <ng-container class="heading">Heading</ng-container>
   <div class="body">
@@ -38,4 +58,4 @@
 <br/>
 <br/>
 
-<authors></authors>
+<authors></authors> -->
