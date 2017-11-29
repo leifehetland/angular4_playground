@@ -1,3 +1,20 @@
+
+<button class="btn-primary" (click)="onAdd()">Add</button>
+<button class="btn-default" (click)="loadCourses()">Load Courses</button>
+<ul>
+  <li
+    style="padding: 1rem 0; text-decoration: none;"
+    *ngFor="let clown of clowns; index as i; trackBy: trackClowns"
+    >{{i}} - {{clown.name}}
+
+    <button class="btn-danger" (click)="onRemove(clown)">Remove</button>
+    <button class="btn-success" (click)="onChange(clown)">Update</button>
+  </li>
+</ul>
+
+
+<!-- <h2 style="text-decoration: underline;">ngIf and change detection</h2>
+
 <button class="btn-default" (click)="onAdd()">Add</button>
 <ul>
   <li style="padding: 1rem 0;" *ngFor="let clown of clowns; index as i">{{i}} - {{clown.name}}
@@ -7,7 +24,7 @@
 </ul>
 
 
-<h2 style="text-decoration: underline;">ngIf and ng-template</h2>
+<h2 style="text-decoration: underline;">ngSwitch</h2>
 
 <ul class="nav nav-pills">
   <li [class.active]="viewMode == 'map'"><a (click)="viewMode = 'map'">Map View</a></li>
@@ -35,7 +52,7 @@
 
 <ng-template #noCourses>
   No Courses yet...
-</ng-template>
+</ng-template> -->
 
 <!--
 <like

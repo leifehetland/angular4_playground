@@ -9,13 +9,10 @@ import { FavoriteChangedEventArgs } from './favorite/favorite.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   viewMode = "other";
 
-  clowns = [
-    {id: 1, name: "Bingo"},
-    {id: 2, name: "Bozo"},
-    {id: 3, name: "Gacy"}
-  ];
+  clowns;
 
   courses = [1, 2];
 
@@ -49,4 +46,15 @@ export class AppComponent {
     clown.name = "Updated";
   }
 
+  loadCourses() {
+    this.clowns = [
+      {id: 1, name: "Bingo"},
+      {id: 2, name: "Bozo"},
+      {id: 3, name: "Gacy"}
+    ];
+  }
+
+  trackClowns(index, clowns) {
+    return clowns ? clowns.id : undefined;
+  }
 }
