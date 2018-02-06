@@ -4,6 +4,7 @@ import { AppError } from './../common/app-error';
 import { NotFoundError } from './../common/not-found-error';
 import { BadInput } from './../common/bad-input';
 
+
 @Component({
   selector: 'posts',
   templateUrl: './posts.component.html',
@@ -20,9 +21,6 @@ export class PostsComponent implements OnInit {
       .subscribe(response => {
         console.log("Response: ", response.json());
         this.posts = response.json();
-      }, error => {
-        alert('An unexpected error occured.');
-        console.log(error);
       });
   }
 
@@ -39,10 +37,7 @@ export class PostsComponent implements OnInit {
       }, (error: AppError) => {
         if (error instanceof BadInput) {
           // this.form.setErrors(error.originalError);
-        } else {
-          alert('An unexpected error occured.');
-          console.log(error);
-        }
+        } else throw error;
       });
   }
 
@@ -50,9 +45,6 @@ export class PostsComponent implements OnInit {
     this.service.updatePosts(post)
       .subscribe(response => {
         console.log('RESPONSE', response);
-      }, error => {
-        alert('An unexpected error occured.');
-        console.log(error);
       });
     // this.http.put(this.url, JSON.stringify(post))
   }
@@ -65,10 +57,7 @@ export class PostsComponent implements OnInit {
       }, (error: AppError) => {
         if (error instanceof NotFoundError) {
           alert('This post has already been deleted.');
-        } else {
-          alert('An unexpected error occured.');
-          console.log(error);
-        }
+        } else throw error;
       });
   }
 
